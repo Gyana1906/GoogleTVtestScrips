@@ -73,6 +73,8 @@ public class GTV_Patchwall_kidsModePasswordTest extends GTV_PatchWall_BaseTest_F
 
 		driver.findElement(By.xpath("//*[@text='" + num2 + "']")).click();
 		Thread.sleep(200);
+		
+		System.out.println("Password changed successully");
 
 
 
