@@ -13,7 +13,9 @@ import org.testng.annotations.Test;
 import com.aventstack.extentreports.ExtentTest;
 
 public class GTVHomeTab_Framework extends BaseTest {
-	ExtentTest test = extent.createTest("CEC Option");
+
+	ExtentTest test = extent.createTest("HDMI Test");
+
 
 	String[] gtvtabStrings = { "For you", "Movies", "TV Shows", "Apps", "Library" };
 	List<String> list = Arrays.asList(gtvtabStrings);
@@ -39,12 +41,26 @@ public class GTVHomeTab_Framework extends BaseTest {
 		Thread.sleep(2000);
 		gHome.home(list);
 
+
 		System.out.println(hdmi1String);
 		 gHome.settingbutton();
 		
 
 		gHome.SettingOps(list2);
 		gHome.inputbutton();
+
+		test.pass("All tabs are available");
+
+		System.out.println(hdmi1String);
+		 gHome.settingbutton();
+		 test.pass("Settings button repsponded");
+		
+
+		gHome.SettingOps(list2);
+		 test.pass("Settings Options are available");
+		gHome.inputbutton();
+		 test.pass("input buttons Clickable");
+
 		gHome.inputsource(list3);
 
 		// String hdmi1String="HDMI1";
@@ -63,9 +79,12 @@ public class GTVHomeTab_Framework extends BaseTest {
 
 		{
 			System.out.println(hdmi1String + " device status is connected");
+
 		} else {
 			System.out.println(hdmi1String + " device  status is not connected");
-		}
+
+			 test.pass("device status is connected");
+		} 
 
 		hdmi1eElement.click();
 
@@ -85,9 +104,15 @@ public class GTVHomeTab_Framework extends BaseTest {
 			if (stringList.contains("No signal")) {
 
 				System.out.println(hdmi1String + "  No signal on Source UI");
+
 //				
 			} else {
 				System.out.println(hdmi1String + " UI appeared ");
+
+				test.fail("device  status is not connected");
+				
+//				
+			
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -102,10 +127,16 @@ public class GTVHomeTab_Framework extends BaseTest {
 
 		GTV_Bluetooth_Test bletestgtv = new GTV_Bluetooth_Test(driver);
 		bletestgtv.bleTest();
-
+		test.pass("BLuetooth  status is enabled");
 
 
 	}
+		
+	
+		
+
+
+
 
 	
 	
