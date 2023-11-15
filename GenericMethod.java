@@ -1,4 +1,4 @@
-package GTVTestCases;
+package GoogleTVtestScrips;
 
 import java.io.File;
 import java.io.FileInputStream;

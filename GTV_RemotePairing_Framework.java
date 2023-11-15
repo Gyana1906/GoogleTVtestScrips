@@ -1,4 +1,4 @@
-package GTVTestCases;
+package GoogleTVtestScrips;
 
 import java.util.List;
 
@@ -6,16 +6,21 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
+import com.aventstack.extentreports.ExtentTest;
+
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
 
 public class GTV_RemotePairing_Framework extends BaseTest {
-	@Test
+	
+	ExtentTest test = extent.createTest("Bluetooth Remote Pairing Test");
+	@Test 
 	public void remoteTest() throws InterruptedException {
 		
 		
 		System.out.println("GTV Home screen");
+		test.pass("Google TV is Launched");
 
 		Thread.sleep(2000);
 		
@@ -39,6 +44,7 @@ public class GTV_RemotePairing_Framework extends BaseTest {
 		try {
 	WebElement rCElement=driver.findElement(By.xpath("//*[contains(@text,'Remote')]"));
 	rCElement.click();
+	test.pass("Bluetooth Remote is Paired to TV");
 		Thread.sleep(200);
 
 		((AndroidDriver<?>)driver).pressKey(new KeyEvent(AndroidKey.DPAD_DOWN));
@@ -71,9 +77,11 @@ public class GTV_RemotePairing_Framework extends BaseTest {
 				{
 			if (rcstatuString.contains("Connected")) {
 				System.out.println("RC is connnected");
+				test.pass("RC is connected");
 			}
 				}else {
 					System.out.println("RC is not connnected");
+					test.fail("RC is not connnected");
 					
 				}
 		
@@ -84,13 +92,16 @@ public class GTV_RemotePairing_Framework extends BaseTest {
 
 		if (btaddressString1.equalsIgnoreCase(btaddressString2)) {
 			System.out.println("RC BT address is matching after repairing");
+			test.pass("RC BT address is matching after repairing");
 		}else {
 			System.out.println("RC BT address is not matching after repairing");
+			test.fail("RC BT address is not matching after repairing");
 
 		}
 		} catch (Exception e) {
 		
 			System.out.println("RC is diconnected and non discoverable");
+			test.fail("RC is diconnected and non discoverable");
 			// TODO: handle exception
 		}
 		

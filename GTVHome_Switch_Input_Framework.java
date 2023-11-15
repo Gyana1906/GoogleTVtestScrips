@@ -1,4 +1,4 @@
-package GTVTestCases;
+package GoogleTVtestScrips;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;

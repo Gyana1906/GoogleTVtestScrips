@@ -1,4 +1,4 @@
-package GTVTestCases;
+package GoogleTVtestScrips;
 
 
 

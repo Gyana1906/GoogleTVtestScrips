@@ -1,4 +1,4 @@
-package GTVTestCases;
+package GoogleTVtestScrips;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -9,11 +9,15 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
+import com.aventstack.extentreports.ExtentTest;
+
 public class GTV_Date_Time_Framework extends BaseTest{
 
 	@Test
 	public void datenTime() throws InterruptedException {
+		ExtentTest test = extent.createTest("Date and Time Test");
 		System.out.println("GTV Home screen");
+		test.pass("Google TV UI launched");
 
 		//Thread.sleep(2000);
 		
@@ -34,8 +38,11 @@ public class GTV_Date_Time_Framework extends BaseTest{
      
      if (TodayTime.equalsIgnoreCase(timeElement.getText())) {
          System.out.println("Time matched with IN Locale");
+         test.pass("Current Time is Matched");
      } else {
-    	 System.out.println("Time not matched with IN Locale");  }
+    	 System.out.println("Time not matched with IN Locale");  
+         test.fail("Current Time doesnt Match");
+}
 
 
      LocalDate currentDate = LocalDate.now();
@@ -44,10 +51,12 @@ public class GTV_Date_Time_Framework extends BaseTest{
 
      if (formattedDate.equalsIgnoreCase(datelElement.getText())) {
          System.out.println("Date & Month matched with IN Locale");
+         test.pass("Current Date & Month  Matched");
      } else {
-    	 System.out.println("Date & Month not matched with IN Locale");  }
+    	 System.out.println("Date & Month not matched with IN Locale"); 
+    	 test.fail("Current Date & Month not Matched");}
      
-     
+   
      
      
 		

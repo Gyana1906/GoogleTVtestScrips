@@ -1,4 +1,4 @@
-package GTVTestCases;
+package GoogleTVtestScrips;
 
 import java.io.IOException;
 import java.net.URL;

@@ -1,4 +1,4 @@
-package GTVTestCases;
+package GoogleTVtestScrips;
 
 import io.appium.java_client.android.AndroidDriver;
 

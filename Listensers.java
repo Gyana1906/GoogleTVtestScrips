@@ -1,4 +1,4 @@
-package GTVTestCases;
+package GoogleTVtestScrips;
 
 import org.testng.ITestContext;
 import org.testng.ITestListener;
