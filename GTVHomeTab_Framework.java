@@ -10,7 +10,10 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import com.aventstack.extentreports.ExtentTest;
+
 public class GTVHomeTab_Framework extends BaseTest {
+	ExtentTest test = extent.createTest("CEC Option");
 
 	String[] gtvtabStrings = { "For you", "Movies", "TV Shows", "Apps", "Library" };
 	List<String> list = Arrays.asList(gtvtabStrings);
@@ -28,7 +31,7 @@ public class GTVHomeTab_Framework extends BaseTest {
 
 
 		System.out.println("GTV UI Launched");
-		
+		test.pass("Google TV UI launched");
 		Thread.sleep(2000);
 
 
