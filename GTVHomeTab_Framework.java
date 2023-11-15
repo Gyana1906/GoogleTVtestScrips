@@ -79,12 +79,13 @@ public class GTVHomeTab_Framework extends BaseTest {
 
 		{
 			System.out.println(hdmi1String + " device status is connected");
+                        test.pass((hdmi1String +"device status is connected");
 
-		} else {
+		}  else {
 			System.out.println(hdmi1String + " device  status is not connected");
+			test.fail(hdmi1String +"device  status is not connected");
+		}
 
-			 test.pass("device status is connected");
-		} 
 
 		hdmi1eElement.click();
 
