@@ -40,19 +40,10 @@ public class GTVHomeTab_Framework extends BaseTest {
 		GTV_TC1_Home gHome = new GTV_TC1_Home(driver);
 		Thread.sleep(2000);
 		gHome.home(list);
-
-
-		System.out.println(hdmi1String);
-		 gHome.settingbutton();
-		
-
-		gHome.SettingOps(list2);
-		gHome.inputbutton();
-
 		test.pass("All tabs are available");
 
 		System.out.println(hdmi1String);
-		 gHome.settingbutton();
+ 	    gHome.settingbutton();
 		 test.pass("Settings button repsponded");
 		
 
@@ -62,6 +53,7 @@ public class GTVHomeTab_Framework extends BaseTest {
 		 test.pass("input buttons Clickable");
 
 		gHome.inputsource(list3);
+		 test.pass("Sources & GOogle HOme BUtton Available");
 
 		// String hdmi1String="HDMI1";
 		String hdmi1xpathString = "//*[@text='" + hdmi1String + "']";
@@ -105,12 +97,14 @@ public class GTVHomeTab_Framework extends BaseTest {
 			if (stringList.contains("No signal")) {
 
 				System.out.println(hdmi1String + "  No signal on Source UI");
+                test.fail(hdmi1String +" No signal on Source UI");
+
 
 //				
 			} else {
 				System.out.println(hdmi1String + " UI appeared ");
 
-				test.fail("device  status is not connected");
+				test.pass(hdmi1String + " UI appeared");
 				
 //				
 			
