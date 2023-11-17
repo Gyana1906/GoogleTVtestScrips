@@ -1,28 +1,35 @@
 package GoogleTVtestScrips;
 
-import java.util.Iterator;
 import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
+import com.aventstack.extentreports.ExtentTest;
+
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
 
 public class GTV_Picture_Framework extends BaseTest {
+	ExtentTest test = extent.createTest("Picture Settings Test");
 
 	@Test
 	public void picture() throws InterruptedException {
 		System.out.println("GTV UI Launched");
+		test.pass("GTV UI Launched");
 		Thread.sleep(2000);
 
 		GTV_TC1_Home gHome = new GTV_TC1_Home(driver);
 		Thread.sleep(2000);
 		gHome.settingbutton();
+		test.pass("Setting button clicked");
 
 		driver.findElement(By.id("com.google.android.apps.tv.launcherx:id/dashboard_profile_setting_icon_id")).click();
+		test.pass("Setting icon clicked");
+
+
 
 		((AndroidDriver<?>) driver).pressKey(new KeyEvent(AndroidKey.DPAD_DOWN));
 		((AndroidDriver<?>) driver).pressKey(new KeyEvent(AndroidKey.DPAD_DOWN));
@@ -31,6 +38,7 @@ public class GTV_Picture_Framework extends BaseTest {
 //
 //		Thread.sleep(2000);
 		driver.findElement(By.xpath("//*[@text='Picture']")).click();
+		test.pass("Ckicked on Picture settings");
 		Thread.sleep(2000);
 
 		WebElement Picturemode = driver.findElement(By.xpath("//*[@text='Picture mode']"));
@@ -46,10 +54,15 @@ public class GTV_Picture_Framework extends BaseTest {
 			System.out
 					.println(Picturemode.getText() + " is matching  with default as  " + picturemodesetElement.getText()
 							+ "  & " + backlight.getText() + " value " + baclightsetElement.getText());
+			test.pass(Picturemode.getText() + " is matching  with default as  " + picturemodesetElement.getText()
+					+ "  & " + backlight.getText() + " value " + baclightsetElement.getText());
 		}
 
 		else {
 			System.out.println(Picturemode.getText() + " is not matching  with default " + "Picture Mode found as "
+					+ picturemodesetElement.getText() + "  & " + backlight.getText() + " value "
+					+ baclightsetElement.getText());
+			test.fail(Picturemode.getText() + " is not matching  with default " + "Picture Mode found as "
 					+ picturemodesetElement.getText() + "  & " + backlight.getText() + " value "
 					+ baclightsetElement.getText());
 		}
@@ -59,6 +72,7 @@ public class GTV_Picture_Framework extends BaseTest {
 		{
 
 			Picturemode.click();
+		
 			Thread.sleep(200);
 			@SuppressWarnings("unchecked")
 			List<WebElement> picturemode4 = driver.findElements(By.id("com.android.tv.settings:id/button"));
@@ -73,6 +87,8 @@ public class GTV_Picture_Framework extends BaseTest {
 			if (pmElements.get(0).getText().equals("Standard") && pmElements.get(1).getText().equals("100")) {
 				System.out.println(Picturemode.getText() + " is matching  as  " + pmElements.get(0).getText() + "  in "
 						+ backlight.getText() + " value " + pmElements.get(1).getText());
+				test.pass(Picturemode.getText() + " is matching  as  " + pmElements.get(0).getText() + "  in "
+						+ backlight.getText() + " value " + pmElements.get(1).getText());
 
 			}
 
@@ -80,16 +96,24 @@ public class GTV_Picture_Framework extends BaseTest {
 				System.out.println(Picturemode.getText() + " is matching  as  " + pmElements.get(0).getText() + "  in "
 						+ backlight.getText() + " value " + pmElements.get(1).getText());
 
+				test.pass(Picturemode.getText() + " is matching  as  " + pmElements.get(0).getText() + "  in "
+						+ backlight.getText() + " value " + pmElements.get(1).getText());
+				
+				
 			}
 
 			else if (pmElements.get(0).getText().equals("Movie") && pmElements.get(1).getText().equals("80")) {
 				System.out.println(Picturemode.getText() + " is matching  as  " + pmElements.get(0).getText() + "  in "
+						+ backlight.getText() + " value " + pmElements.get(1).getText());
+				test.pass(Picturemode.getText() + " is matching  as  " + pmElements.get(0).getText() + "  in "
 						+ backlight.getText() + " value " + pmElements.get(1).getText());
 
 			}
 
 			else if (pmElements.get(0).getText().equals("Sport") && pmElements.get(1).getText().equals("100")) {
 				System.out.println(Picturemode.getText() + " is matching  as  " + pmElements.get(0).getText() + "  in "
+						+ backlight.getText() + " value " + pmElements.get(1).getText());
+				test.pass(Picturemode.getText() + " is matching  as  " + pmElements.get(0).getText() + "  in "
 						+ backlight.getText() + " value " + pmElements.get(1).getText());
 
 			}
@@ -98,10 +122,15 @@ public class GTV_Picture_Framework extends BaseTest {
 
 				System.out.println(Picturemode.getText() + " is not matching  as  " + pmElements.get(0).getText()
 						+ "  & " + backlight.getText() + " value " + pmElements.get(1).getText());
+				test.fail(Picturemode.getText() + " is not matching  as  " + pmElements.get(0).getText()
+						+ "  & " + backlight.getText() + " value " + pmElements.get(1).getText());
 			}
 
 		}
-
+		
+       	
+		
+         
 	}
 }
 //	}
