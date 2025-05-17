@@ -68,12 +68,15 @@ public class GTV_TC1_Home {
 
 		try {
 			settingElement2.click();
+			Thread.sleep(200);
+//			com.google.android.apps.tv.launcherx:id/status_bar_dashboard_button
+
 		} catch (Exception e) {
 			// TODO: handle exception
 
 			e.printStackTrace();
 			settingElement1.click();
-			Thread.sleep(200);
+		
 
 		}
 
@@ -98,6 +101,7 @@ public class GTV_TC1_Home {
 	}
 
 	public void inputbutton() throws InterruptedException {
+		Thread.sleep(200);
 		input1Element.click();
 		Thread.sleep(200);
 	}

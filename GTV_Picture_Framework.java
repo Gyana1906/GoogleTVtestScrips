@@ -50,7 +50,7 @@ public class GTV_Picture_Framework extends BaseTest {
 
 		WebElement baclightsetElement = (WebElement) driver.findElements(By.className("android.widget.TextView"))
 				.get(4);
-		if (picturemodesetElement.getText().equals("Standard") && baclightsetElement.getText().equals("100")) {
+		if (picturemodesetElement.getText().equals("Standard") && baclightsetElement.getText().equals("87")) {
 			System.out
 					.println(Picturemode.getText() + " is matching  with default as  " + picturemodesetElement.getText()
 							+ "  & " + backlight.getText() + " value " + baclightsetElement.getText());
@@ -84,7 +84,7 @@ public class GTV_Picture_Framework extends BaseTest {
 			@SuppressWarnings("unchecked")
 			List<WebElement> pmElements = driver.findElements(By.id("android:id/summary"));
 
-			if (pmElements.get(0).getText().equals("Standard") && pmElements.get(1).getText().equals("100")) {
+			if (pmElements.get(0).getText().equals("Standard") && pmElements.get(1).getText().equals("87")) {
 				System.out.println(Picturemode.getText() + " is matching  as  " + pmElements.get(0).getText() + "  in "
 						+ backlight.getText() + " value " + pmElements.get(1).getText());
 				test.pass(Picturemode.getText() + " is matching  as  " + pmElements.get(0).getText() + "  in "

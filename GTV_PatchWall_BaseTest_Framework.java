@@ -9,6 +9,7 @@ import java.util.concurrent.TimeoutException;
 
 
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import io.appium.java_client.MobileElement;
@@ -19,7 +20,7 @@ import io.appium.java_client.remote.MobileCapabilityType;
 
 public class GTV_PatchWall_BaseTest_Framework {
 	AndroidDriver<?> driver;
-	String[] tabnameStrings = { "Home", "Movies", "Shows", "Music", "Live", "Kids" };
+	String[] tabnameStrings = { "Home", "Movies", "Shows","Sony LIV", "Music", "Live","Sports", "Kids" };
 	List<String> listtab = Arrays.asList(tabnameStrings);
 
 	@BeforeMethod
@@ -41,11 +42,12 @@ public class GTV_PatchWall_BaseTest_Framework {
 	
 	
 	
-	@AfterTest
+	@AfterClass
 	public void testpwclose() throws InterruptedException
 	{
-		Thread.sleep(2000);
-	driver.quit();
+//		Thread.sleep(2000);
+	    driver.quit();
+	
 	}
 
 		

@@ -48,7 +48,7 @@ public class BaseTest {
 	        extent.attachReporter(spark);
 
 	    	
-	    	DesiredCapabilities cap=new DesiredCapabilities();
+	     DesiredCapabilities cap=new DesiredCapabilities();
 	     cap.setCapability(MobileCapabilityType.AUTOMATION_NAME,AutomationName.ANDROID_UIAUTOMATOR2);
          cap.setCapability(MobileCapabilityType.UDID,GenericMethod.getvalue("GTVUdid"));
          cap.setCapability(MobileCapabilityType.PLATFORM_NAME,GenericMethod.getvalue("GTVPlatfomName"));

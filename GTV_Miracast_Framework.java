@@ -14,7 +14,7 @@ public class GTV_Miracast_Framework extends BaseTest {
 
 	ExtentTest test = extent.createTest("Miracast Test");
 
-	@Test
+	@Test 
 	public void miracastTest() throws InterruptedException {
 
 		System.out.println("GTV Home screen");
@@ -30,6 +30,8 @@ public class GTV_Miracast_Framework extends BaseTest {
 		System.out.println("Miracast App launched");
 		test.pass("Miracast App Launched");
 		WebElement mira = driver.findElement(By.xpath("//*[@text='Miracast']"));
+		System.out.println("Miracast is displayed");
+
 		Assert.assertTrue(mira.isDisplayed(), "Miracast is not displayed");
 		test.pass("Miracast displayed on Screen");
 		WebElement defpriority = driver.findElement(By.xpath("//*[@text='Definition Priority']"));

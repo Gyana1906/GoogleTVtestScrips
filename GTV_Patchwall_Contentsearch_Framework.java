@@ -1,10 +1,13 @@
 package GoogleTVtestScrips;
 
+
+
 import java.util.List;
 import java.util.stream.Collectors;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import io.appium.java_client.android.AndroidDriver;
@@ -61,7 +64,7 @@ public class GTV_Patchwall_Contentsearch_Framework  extends GTV_PatchWall_BaseTe
         Mi.click();
         Thread.sleep(200);
         
-        WebElement spacElement = driver.findElements(By.id("com.mitv.tvhome.atv:id/key_item_icon")).get(0);
+        WebElement spacElement = (WebElement) driver.findElements(By.id("com.mitv.tvhome.atv:id/key_item_icon")).get(0);
         spacElement.click();
         Thread.sleep(200);
 
@@ -75,15 +78,14 @@ public class GTV_Patchwall_Contentsearch_Framework  extends GTV_PatchWall_BaseTe
         // String tittl = driver.findElement(By.xpath("//*[@text='Drishyam']")).getText();
         @SuppressWarnings("unchecked")
 		List <WebElement> tilldisp = (List<WebElement>) driver.findElements(By.id("com.mitv.tvhome.atv:id/tv_suggest"));
+       
+        for(WebElement li:tilldisp) {
+        System.out.println(li.getText());}
 
       WebElement tittl2=
-              tilldisp.stream().filter(p->p.getText().contains("Drishyam 2")).collect(Collectors.toList()).get(0);
-        if (tittl2.getText().equalsIgnoreCase("Drishyam 2")) {
-
-            System.out.println("Content Drishyam 2 Found in PW");
-          
-        } else
-            System.out.println("Content Drishyam 2 not Found in PW");
+              tilldisp.stream().filter(p->p.getText().contains("DRISHYAM  2")).collect(Collectors.toList()).get(0);
+       
+      Assert.assertTrue(tittl2.getText().equalsIgnoreCase("Drishyam  2"), "Content not found");
 
 
         for (int i = 0; i <= 5; i++) {

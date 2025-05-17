@@ -1,5 +1,7 @@
 package GoogleTVtestScrips;
 
+import java.util.List;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -20,8 +22,8 @@ public class GTV_TC2_WIFITest extends ReusableMethods{
 	@FindBy(xpath = "//*[contains(@text,'Home')]")
 	WebElement ghomebuttonElement;
 	
-	@FindBy(id = "com.google.android.apps.tv.launcherx:id/guide_home_google_tv_logo")
-	WebElement logoElement;
+	@FindBy(className  = "android.widget.ImageView")
+List<WebElement> logoElement;
 	
 	
 	public void Ghomebutton() {
@@ -30,7 +32,7 @@ public class GTV_TC2_WIFITest extends ReusableMethods{
 	}
 	public WebElement logo() {
 		
-		return logoElement;
+		return logoElement.get(16);
 	}
 	
 	

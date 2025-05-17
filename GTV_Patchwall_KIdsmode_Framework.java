@@ -170,5 +170,6 @@ public class GTV_Patchwall_KIdsmode_Framework  extends GTV_PatchWall_BaseTest_Fr
         
         System.out.println("Switching to Home Mode in PW");
         Thread.sleep(5000);
+        
 	
 }}

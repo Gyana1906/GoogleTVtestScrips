@@ -17,7 +17,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ReusableMethods  {
 	
-	WebDriver driver;
+	 WebDriver driver;
 	
 	public ReusableMethods(WebDriver driver) {
 		this.driver=driver;
